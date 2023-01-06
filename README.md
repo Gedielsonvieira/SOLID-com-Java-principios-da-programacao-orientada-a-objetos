@@ -1,9 +1,12 @@
 # SOLID com Java: princípios da programação orientada a objetos
 
-* **S**ingle Responsability Principle **(Princípio - responsabilidade única)**
+* <a href="srp">**S**ingle Responsability Principle **</a>(Princípio - responsabilidade única)**
   > O foco deste princípio é justamente em coesão.<br>
   **Definição**: Uma classe (ou módulo, função, etc) deve ter um e apenas um motivo para mudar
 * **O**pen Closed Principle **(Princípio - aberto e fechado)**
+  > Um sistema deve ser aberto para a extensão, mas fechado para a modificação.<br>
+  > Isso significa que devemos poder criar novas funcionalidades e estender o sistema sem precisar modificar muitas
+  classes já existentes
 * **L**iskov Substitution Principle **(Princípio - substituição de Liskov)**
 * **I**nterface Segregation Principle **(Princípio - segregação de interface)**
 * **D**ependency Inversion Principle **(Princípio - inversão de dependência)**
@@ -48,7 +51,24 @@
 
 ## Melhorando a coesão
 
+> Foi extraido a lógica de uma função da classe Funcionario para a classe ReajusteService assim
+> melhorando a coesão e estando dentro do princípio <a href="#srp">SRP</a>
+
 * **O que é uma refatoração?**
   É uma alteração no código que visa melhorar sua clareza e entendimento.
   Refatorações servem para melhorar o design do código, e não o funcionamento do sistema. Uma
   refatoração não deve influenciar em nada no funcionamento.
+
+## Reduzindo o acomplamento
+
+### Extraindo validações
+
+> Surgiu um novo requisito para implementarmos, que diz que um funcionário tem que ter uma periodicidade, ele não pode
+> sair recebendo reajuste todos os meses.
+> Com isso implementamos essa lógica na classe de serviço ReajusteService que continua coesa mas ela tende vir a crescer
+> cada vez mais a cada nova regra de negócio, com isso separamos essas validações em diferentes classes
+
+********** Porque Foi reduzido o acoplamento? ************
+
+- Cada classe deve conhecer e ser responsável por suas próprias regras de negócio;
+- Uma classe que tende a crescer "para sempre" é uma forte candidata a sofrer alguma espécie de refatoração.
