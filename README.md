@@ -1,6 +1,6 @@
 # SOLID com Java: princípios da programação orientada a objetos
 
-* <a href="srp">**S**ingle Responsability Principle **</a>(Princípio - responsabilidade única)**
+* **S**ingle Responsability Principle **(Princípio - responsabilidade única)**
   > O foco deste princípio é justamente em coesão.<br>
   **Definição**: Uma classe (ou módulo, função, etc) deve ter um e apenas um motivo para mudar
 * **O**pen Closed Principle **(Princípio - aberto e fechado)**
@@ -8,6 +8,7 @@
   > Isso significa que devemos poder criar novas funcionalidades e estender o sistema sem precisar modificar muitas
   classes já existentes
 * **L**iskov Substitution Principle **(Princípio - substituição de Liskov)**
+  > Diz que devemos poder substituir classes base por suas classes derivadas(filhas) em qualquer lugar, sem problema.
 * **I**nterface Segregation Principle **(Princípio - segregação de interface)**
 * **D**ependency Inversion Principle **(Princípio - inversão de dependência)**
 
@@ -51,8 +52,10 @@
 
 ## Melhorando a coesão
 
-> Foi extraido a lógica de uma função da classe Funcionario para a classe ReajusteService assim
-> melhorando a coesão e estando dentro do princípio <a href="#srp">SRP</a>
+> Este tópico nos ensina sobre - **Single Responsability Principle**
+
+<i> Foi extraido a lógica de uma função da classe Funcionario para a classe ReajusteService assim
+ melhorando a coesão e estando dentro do princípio SRP.</i>
 
 * **O que é uma refatoração?**
   É uma alteração no código que visa melhorar sua clareza e entendimento.
@@ -61,14 +64,31 @@
 
 ## Reduzindo o acomplamento
 
-### Extraindo validações
-
-> Surgiu um novo requisito para implementarmos, que diz que um funcionário tem que ter uma periodicidade, ele não pode
-> sair recebendo reajuste todos os meses.
-> Com isso implementamos essa lógica na classe de serviço ReajusteService que continua coesa mas ela tende vir a crescer
-> cada vez mais a cada nova regra de negócio, com isso separamos essas validações em diferentes classes
-
-********** Porque Foi reduzido o acoplamento? ************
+> Este tópico nos ensina sobre - **Open Closed Principle**
 
 - Cada classe deve conhecer e ser responsável por suas próprias regras de negócio;
+
 - Uma classe que tende a crescer "para sempre" é uma forte candidata a sofrer alguma espécie de refatoração.
+
+- **Como adicionar um novo comportamento sem alterar o código fonte já existente?**
+
+    - O Uncle Bob resumiu a solução em uma frase:
+      **"Separe o comportamento extensível por trás de uma interface e inverta as dependências".**
+      > O que devemos fazer é concentrar nos aspectos essências do contexto, abstraindo-os para uma interface, Exemplo:
+      Interface ValidacaoReajuste que nos dá a abstração das validações. Se as
+      abstrações são bem definidas, logo o software estará aberto para extensão.
+
+## Herança indesejada
+
+> Este tópico nos ensina sobre - **Liskov Substitution Principle**
+
+Herança nos permite ter um reaproveitamento de código porém as vezes podemos estar gerando algum efeito colateral,
+**devemos pensar tudo o que está na classe pai faz sentido na classe filha?** - **Se não fizer sentido, devemos utilizar
+a composição**
+
+## ! Importante
+
+<i>Nem sempre será possível seguir a risca todos os padrões e princípios em um projeto, sendo que em alguns casos
+podemos
+abrir mão de algum deles em prol de outros benefícios. Devemos então sempre analisar os pontos positivos e negativos de
+cada decisão em um projeto.</i>
