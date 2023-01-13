@@ -6,7 +6,7 @@ import java.time.LocalDate;
 public class Funcionario {
 
 
-	private DadosPessoais dadosPessoais;
+	private DadosPessoais dadosPessoais;//utilizando composicao ao inves de herenca
 	private LocalDate dataUltimoReajuste;
 
 	public Funcionario(String nome, String cpf, Cargo cargo, BigDecimal salario) {

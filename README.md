@@ -10,11 +10,14 @@
 * **L**iskov Substitution Principle **(Princípio - substituição de Liskov)**
   > Diz que devemos poder substituir classes base por suas classes derivadas(filhas) em qualquer lugar, sem problema.
 * **I**nterface Segregation Principle **(Princípio - segregação de interface)**
+  > <i>Uma classe não deveria ser forçada a depender de métodos que não utilizará</i>
 * **D**ependency Inversion Principle **(Princípio - inversão de dependência)**
+  > <i>Abstrações não devem depender de implementações.<br>
+  > Implementações devem depender de abstrações.</i>
 
-> Esses princípios visam justamente simplificar o processo de manutenção do código e
-> Cada um desses princípios formam o SOLID, que são princípios focados em boas práticas de programação e de orientação a
-> objetos.
+<i>Esses princípios visam justamente simplificar o processo de manutenção do código e
+Cada um desses princípios formam o SOLID, que são princípios focados em boas práticas de programação e de orientação a
+objetos.</i>
 
 ## Princípios de Orientação a objetos
 
@@ -62,13 +65,23 @@
   Refatorações servem para melhorar o design do código, e não o funcionamento do sistema. Uma
   refatoração não deve influenciar em nada no funcionamento.
 
+Quando utilizar:
+
+- Quando temos uma classe, método que tem mais de uma responsabilidade.
+
+O que fazer:
+
+- Extrair essa lógica para outra classe
+
 ## Reduzindo o acomplamento
 
 > Este tópico nos ensina sobre - **Open Closed Principle**
 
-- Cada classe deve conhecer e ser responsável por suas próprias regras de negócio;
+Quando utilizar:
 
-- Uma classe que tende a crescer "para sempre" é uma forte candidata a sofrer alguma espécie de refatoração.
+- Em uma classe que tende a crescer "para sempre".
+
+O que fazer:
 
 - **Como adicionar um novo comportamento sem alterar o código fonte já existente?**
 
@@ -78,6 +91,9 @@
       Interface ValidacaoReajuste que nos dá a abstração das validações. Se as
       abstrações são bem definidas, logo o software estará aberto para extensão.
 
+<i>A ideia é que condigamos reduzir o acoplamento ou se possível se acoplar com coisas que são mais estáveis, como
+interfaces. Favorecendo o princípio do Open-Closed</i>
+
 ## Herança indesejada
 
 > Este tópico nos ensina sobre - **Liskov Substitution Principle**
@@ -85,6 +101,27 @@
 Herança nos permite ter um reaproveitamento de código porém as vezes podemos estar gerando algum efeito colateral,
 **devemos pensar tudo o que está na classe pai faz sentido na classe filha?** - **Se não fizer sentido, devemos utilizar
 a composição**
+
+## Trabalhando com abstrações
+
+> **Abstração** - É separar uma parte de um todo, considerando-a independente das demais partes.
+
+> Este tópico nos ensina sobre -
+> **Dependency Inversion Principle** e
+
+<i>Temos vantagem ao depender de interfaces e não de implementações pois caso uma determinada implementação mude, não
+seremos afetados, porque dependemos apenas de sua interface.</i>
+
+> **Interface Segregation Principle**
+
+Quando utilizar:
+
+- Quando temos uma classe que assina um contrato (interface) porém ela não utiliza todos os métodos existentes na
+  interface.<br>
+
+O que fazer:
+
+- Devemos utilizar o principio de segregação onde separamos/abstraimos outra interface
 
 ## ! Importante
 
