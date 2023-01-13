@@ -121,7 +121,7 @@ Quando utilizar:
 
 O que fazer:
 
-- Devemos utilizar o principio de segregação onde separamos/abstraimos para outra interface o método em que a classe não
+- Devemos utilizar o principio de segregação onde separamos/abstraimos para outra interface o método que a classe não
   utiliza
 
 ## ! Importante
